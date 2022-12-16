@@ -35,6 +35,9 @@ public class FoodOrderGUI extends JFrame{
         });
     }
     public void order(){
+        //paranoid mode here
+        try {
+
             double total = 0;
             int discount = 0;
 
@@ -67,6 +70,9 @@ public class FoodOrderGUI extends JFrame{
                 discount += 15;
             }
             total -= total * discount / 100;
-            JOptionPane.showMessageDialog(null, String.format("Total price is Php %.2f", total));
+            JOptionPane.showMessageDialog(null, String.format("Total price is Php %.2f", total));}
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error encountered!");
+        }
     }
 }
