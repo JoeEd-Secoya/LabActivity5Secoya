@@ -19,7 +19,7 @@ public class FoodOrderGUI extends JFrame{
     private JRadioButton rb15;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("FoodOrderGUI");
+        JFrame frame = new JFrame("Food Ordering System");
         frame.setContentPane(new FoodOrderGUI().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 500);
