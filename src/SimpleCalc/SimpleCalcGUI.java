@@ -1,6 +1,7 @@
 package SimpleCalc;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class SimpleCalcGUI extends JFrame {
     private JPanel panel1;
@@ -17,4 +18,33 @@ public class SimpleCalcGUI extends JFrame {
         frame.setSize(700, 400);
         frame.setVisible(true);
     }
+
+    public SimpleCalcGUI() {
+        btnCompute.addActionListener(e -> {
+            displayResult();
+        });
+    }
+    public void displayResult() {
+        int num1 = Integer.parseInt(tfNumber1.getText());
+        int num2 = Integer.parseInt(tfNumber2.getText());
+        int result = 0;
+        String operation = Objects.requireNonNull(cbOperations.getSelectedItem()).toString();
+
+        switch (operation) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                result = num1 / num2;
+                break;
+        }
+        lblResult.setText(String.valueOf(result));
+    }
+
 }
