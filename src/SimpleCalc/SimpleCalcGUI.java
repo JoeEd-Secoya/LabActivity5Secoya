@@ -25,8 +25,9 @@ public class SimpleCalcGUI extends JFrame {
         });
     }
     public void displayResult() {
-        int num1 = Integer.parseInt(tfNumber1.getText());
-        int num2 = Integer.parseInt(tfNumber2.getText());
+        try {
+        int num1 = Integer.parseInt(tfNumber1.getText().strip());
+        int num2 = Integer.parseInt(tfNumber2.getText().strip());
         int result = 0;
         String operation = Objects.requireNonNull(cbOperations.getSelectedItem()).toString();
 
@@ -44,7 +45,11 @@ public class SimpleCalcGUI extends JFrame {
                 result = num1 / num2;
                 break;
         }
-        lblResult.setText(String.valueOf(result));
+        lblResult.setText(String.valueOf(result));}
+        catch (Exception e) {
+            lblResult.setText("Error!");
+            JOptionPane.showMessageDialog(null, "Please enter a valid number");
+        }
     }
 
 }
